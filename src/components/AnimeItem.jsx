@@ -50,6 +50,12 @@ function AnimeItem() {
 
     return (
         <AnimeItemStyled>
+            <div className="back">
+                <Link to="/">
+                    <i className="fas fa-arrow-left"></i>
+                    Back to Home
+                </Link>
+            </div>
             <h1>{title}</h1>
             <div className="details">
                 <div className="detail">

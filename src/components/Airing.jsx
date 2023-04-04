@@ -8,7 +8,7 @@ function Airing({ rendered }) {
 
     const conditialRender = () => {
         if (!isSearch && rendered === 'airing') {
-            return airingAnime.map((anime) => {
+            return airingAnime?.map((anime) => {
                 console.log(anime);
                 return (
                     <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>

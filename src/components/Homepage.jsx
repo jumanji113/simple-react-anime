@@ -1,25 +1,24 @@
 import React from 'react';
-import { useState } from 'react';
 import { useGlobalContext } from '../context/global';
 import Popular from './Popular';
 import styled from 'styled-components';
 import Upcoming from './Upcoming';
 import Airing from './Airing';
 
-const Homepage = () => {
-    const { search, handleChange, handleSubmit, getUpcomingAnime, getAiringAnime } =
+function Homepage() {
+    const { handleSubmit, search, handleChange, getUpcomingAnime, getAiringAnime } =
         useGlobalContext();
 
-    const [rendered, setRendered] = useState('popular');
+    const [rendered, setRendered] = React.useState('popular');
 
-    const switchComponents = () => {
+    const switchComponent = () => {
         switch (rendered) {
             case 'popular':
                 return <Popular rendered={rendered} />;
-            case 'upcoming':
-                return <Upcoming rendered={rendered} />;
             case 'airing':
                 return <Airing rendered={rendered} />;
+            case 'upcoming':
+                return <Upcoming rendered={rendered} />;
             default:
                 return <Popular rendered={rendered} />;
         }
@@ -43,7 +42,7 @@ const Homepage = () => {
                             onClick={() => {
                                 setRendered('popular');
                             }}>
-                            Popular
+                            Popular<i className="fas fa-fire"></i>
                         </button>
                     </div>
                     <form action="" className="search-form" onSubmit={handleSubmit}>
@@ -77,10 +76,10 @@ const Homepage = () => {
                     </div>
                 </div>
             </header>
-            {switchComponents()}
+            {switchComponent()}
         </HomepageStyled>
     );
-};
+}
 
 const HomepageStyled = styled.div`
     background-color: #ededed;
